@@ -1,0 +1,22 @@
+---
+title: "Gantt Charts"
+output: html_document
+---
+
+```{r}
+library(timevis)
+```
+
+Data
+```{r}
+data <- data.frame(
+  id      = 1:4,
+  content = c("Item one"  , "Item two"  ,"Ranged item", "Item four"),
+  start   = c("2019-05-01", "2019-06-01", "2019-07-20", "2019-08-14 15:00:00"),
+  end     = c(NA          ,           NA, "2019-08-13", NA)
+)
+```
+
+```{r}
+timevis(data)
+```
