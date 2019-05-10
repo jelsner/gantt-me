@@ -90,42 +90,60 @@ library(ggplot2)
 
 df <- data.frame(
   project = c("Attend Collaborative Collision", 
-              "Organize the team", 
+              "Organize the team",
+              "Fit the statistical model",
               "Write seed proposal",
               "Submit proposal", 
+              "Obtain IRB approval",
               "Visit communities (Phase 1)",
+              "Refit the statistical model",
               "Visit communities (Phase 2)", 
               "Write paper",
               "Write full proposal"),
   start   = c("2019-04-16", 
-              "2019-04-18", 
+              "2019-04-18",
+              "2019-04-18",
               "2019-04-25", 
               "2019-05-24", 
-              "2019-06-01", 
-              "2019-08-06", 
+              "2019-05-24",
+              "2019-06-01",
+              "2019-08-06",
+              "2019-09-01", 
               "2020-01-01",
               "2020-04-01"),
   end     = c("2019-04-17", 
               "2019-04-25",
+              "2019-05-05",
               "2019-05-24", 
-              "2019-05-25", 
-              "2019-08-05", 
+              "2019-05-25",
+              "2019-06-24",
+              "2019-08-05",
+              "2019-08-30",
               "2019-12-20", 
               "2020-03-31",
               "2020-06-01"),
-  group = c("Planning", "Planning", "Collaboration", "Planning", "Qualitative Methods", "Qualitative Methods", "Collaboration", "Collaboration"))
+  group = c("Planning", 
+            "Planning", 
+            "Quantitative Methods", 
+            "Collaboration", 
+            "Planning", 
+            "Planning",
+            "Qualitative Methods",
+            "Quantitative Methods",
+            "Qualitative Methods",
+            "Collaboration",
+            "Collaboration"))
 
-df$project_ordered <- factor(df$project, levels = df$project[1:8])
+df$project_ordered <- factor(df$project, levels = df$project[1:11])
 df$start <- as.Date(df$start)
 df$end <- as.Date(df$end)
 
 ggplot(df, aes(x = start, y = project_ordered, color = group)) +
-  geom_segment(aes(x = start, xend = end, yend = project_ordered), size = 10) +
+  geom_segment(aes(x = start, xend = end, yend = project_ordered), size = 5) +
   ylab("Tasks") + xlab("") +
+  scale_x_date(date_breaks = "months") +
   theme_minimal() +
-  theme(legend.title = element_blank(), legend.position = "top")
-
-
-+
- scale_colour_discrete(guide=guide_legend(override.aes=list(size=7))) #or legend will be too big
-
+  theme(legend.title = element_blank(), 
+        legend.position = "top", 
+        axis.text.x = element_text(angle = 45, hjust = 1))
+```
