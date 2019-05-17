@@ -89,52 +89,60 @@ Use ggplot2
 library(ggplot2)
 
 df <- data.frame(
-  project = c("Attend Collaborative Collision", 
-              "Organize the team",
-              "Fit the statistical model",
-              "Write seed proposal",
-              "Submit proposal", 
-              "Obtain IRB approval",
-              "Visit communities (Phase 1)",
-              "Refit the statistical model",
-              "Visit communities (Phase 2)", 
-              "Write paper",
-              "Write full proposal"),
-  start   = c("2019-04-16", 
-              "2019-04-18",
-              "2019-04-18",
-              "2019-04-25", 
-              "2019-05-24", 
-              "2019-05-24",
-              "2019-06-01",
-              "2019-08-06",
-              "2019-09-01", 
-              "2020-01-01",
-              "2020-04-01"),
-  end     = c("2019-04-17", 
-              "2019-04-25",
-              "2019-05-05",
-              "2019-05-24", 
-              "2019-05-25",
-              "2019-06-24",
-              "2019-08-05",
-              "2019-08-30",
-              "2019-12-20", 
-              "2020-03-31",
-              "2020-06-01"),
-  group = c("Planning", 
-            "Planning", 
-            "Quantitative Methods", 
-            "Collaboration", 
-            "Planning", 
-            "Planning",
-            "Qualitative Methods",
-            "Quantitative Methods",
-            "Qualitative Methods",
-            "Collaboration",
-            "Collaboration"))
+  project = c("Attend Collaborative Collision", #1
+              "Organize the team", #2
+              "Fit the statistical model", #3
+              "Write seed proposal", #4
+              "Submit proposal", #5
+              "Obtain IRB approval", #6
+              "Visit communities (Phase 1)", #7
+              "Refit the statistical model", #8
+              "Visit communities (Phase 2)", #9
+              "Transcribe/analyze/synthesize data", #10
+              "Write paper", #11
+              "Report back visit", #12
+              "Write/submit full proposal"), #13
+  start   = c("2019-04-16", #1
+              "2019-04-18", #2
+              "2019-04-18", #3
+              "2019-04-25", #4
+              "2019-05-24", #5
+              "2019-05-24", #6
+              "2019-07-08", #7
+              "2019-08-06", #8
+              "2019-10-07", #9 
+              "2019-10-20", #10
+              "2020-01-01", #11
+              "2020-02-15", #12
+              "2020-04-01"), #13
+  end     = c("2019-04-17", #1
+              "2019-04-25", #2
+              "2019-05-05", #3
+              "2019-05-24", #4
+              "2019-05-25", #5
+              "2019-06-24", #6
+              "2019-07-14", #7
+              "2019-10-02", #8
+              "2019-10-14", #9
+              "2019-12-20", #10
+              "2020-03-31", #11
+              "2020-02-16", #12
+              "2020-06-01"), #13
+  group = c("Planning", #1
+            "Planning", #2
+            "Quantitative Methods", #3
+            "Collaboration", #4
+            "Planning", #5
+            "Planning", #6
+            "Qualitative Methods", #7
+            "Quantitative Methods", #8
+            "Qualitative Methods", #9
+            "Qualitative Methods", #10
+            "Collaboration", #11
+            "Collaboration", #12
+            "Collaboration")) #13
 
-df$project_ordered <- factor(df$project, levels = df$project[1:11])
+df$project_ordered <- factor(df$project, levels = df$project[1:13])
 df$start <- as.Date(df$start)
 df$end <- as.Date(df$end)
 
